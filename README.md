@@ -1,24 +1,56 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+| Column             | Type                | Options                   |
+|--------------------|---------------------|---------------------------|
+| nickname           | string              | null: false               |
+| email              | string              | null: false, unique: true |
+| password           | string              | null: false               |
+| name               | string              | null: false               |
+| birth              | string              | null: false               |
 
-* Ruby version
+### Association
 
-* System dependencies
+* has_many :items
+* has_many :purchase
 
-* Configuration
+## items table
 
-* Database creation
+| Column                   | Type       | Options                        |
+|--------------------------|------------|--------------------------------|
+| title                    | string     | null: false                    |
+| explain                  | text       | null: false                    |
+| detail_category          | string     | null: false                    |
+| detail_condition         | string     | null: false                    |
+| detail_category          | string     | null: false                    |
+| delivery_load            | string     | null: false                    |
+| delivery_area            | string     | null: false                    |
+| delivery_date            | string     | null: false                    |
+| price                    | string     | null: false                    |
+| user                     | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :purchase
 
-* Services (job queues, cache servers, search engines, etc.)
+## purchase table
 
-* Deployment instructions
+| Column          | Type       | Options                        |
+|-----------------|------------|--------------------------------|
+| card_number     | string     | null: false                    |
+| valid           | string     | null: false                    |
+| security        | string     | null: false                    |
+| post_number     | string     | null: false                    |
+| city            | string     | null: false                    |
+| address         | string     | null: false                    |
+| build_name      | string     | null: false                    |
+| phone_number    | string     | null: false                    |
+| item            | references | null: false, foreign_key: true |
+| user            | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+- belongs_to :prototype
+- belongs_to :user
