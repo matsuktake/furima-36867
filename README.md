@@ -12,8 +12,8 @@
 
 ### Association
 
-* has_many :items
-* has_many :purchase
+* has_many : items
+* has_many : purchase
 
 ## items table
 
@@ -32,8 +32,8 @@
 
 ### Association
 
-- belongs_to :user
-- has_many :purchase
+- belongs_to : user
+- has_many : purchase
 
 ## purchase table
 
@@ -52,5 +52,5 @@
 
 ### Association
 
-- belongs_to :prototype
-- belongs_to :user
+- belongs_to : prototype
+- belongs_to : user
